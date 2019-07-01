@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>3de29cfe-16a6-493d-97b3-e617074af796</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Level4_DoubleArcHow.py</StartupFile>
+    <StartupFile>Level2_XorGateHow.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -27,6 +27,7 @@
     <Compile Include="HelperClass2\LossFunction.py" />
     <Compile Include="HelperClass2\NeuralNet2.py" />
     <Compile Include="HelperClass2\TrainingTrace.py" />
+    <Compile Include="HelperClass2\Visualizer.py" />
     <Compile Include="HelperClass2\WeightsBias.py" />
     <Compile Include="HelperClass2\__init__.py">
       <SubType>Code</SubType>
