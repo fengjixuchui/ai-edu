@@ -4,10 +4,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-from HelperClass2.DataReader import *
-from HelperClass2.HyperParameters2 import *
-from HelperClass2.NeuralNet2 import *
-from HelperClass2.Visualizer import *
+from HelperClass2.NeuralNet_2_2 import *
+from HelperClass2.Visualizer_1_1 import *
 
 train_data_name = "../../Data/ch11.train.npz"
 test_data_name = "../../Data/ch11.test.npz"
@@ -19,10 +17,10 @@ def train(n_hidden):
     eta, batch_size, max_epoch = 0.1, 10, 10000
     eps = 0.01
 
-    hp = HyperParameters2(n_input, n_hidden, n_output, eta, max_epoch, batch_size, eps, NetType.MultipleClassifier, InitialMethod.Xavier)
-    net = NeuralNet2(hp, "Bank_2N3")
+    hp = HyperParameters_2_0(n_input, n_hidden, n_output, eta, max_epoch, batch_size, eps, NetType.MultipleClassifier, InitialMethod.Xavier)
+    net = NeuralNet_2_2(hp, "Bank_2N3")
     net.train(dataReader, 100, True)
-    net.ShowTrainingTrace()
+    net.ShowTrainingHistory()
     loss = net.GetLatestAverageLoss()
 
     fig = plt.figure(figsize=(6,6))
@@ -31,9 +29,9 @@ def train(n_hidden):
     plt.show()
 
 if __name__ == '__main__':
-    dataReader = DataReader(train_data_name, test_data_name)
+    dataReader = DataReader_2_0(train_data_name, test_data_name)
     dataReader.ReadData()
-    dataReader.NormalizeY(YNormalizationMethod.MultipleClassifier, base=1)
+    dataReader.NormalizeY(NetType.MultipleClassifier, base=1)
     dataReader.NormalizeX()
     dataReader.Shuffle()
     dataReader.GenerateValidationSet()
